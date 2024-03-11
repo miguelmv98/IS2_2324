@@ -16,20 +16,22 @@ public class GestionTiendas implements IGestionTiendas {
 
 	
 	public Tienda nuevaTienda(Tienda t) throws DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
+		return tiendasDAO.crearTienda(t);
 	}
 
 	
 	public Tienda eliminarTienda(String nombre) throws OperacionNoValidaException, DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
+		Tienda tienda = tiendasDAO.tiendaPorNombre(nombre);
+		if(!tienda.getEmpleados().isEmpty()) {
+			throw new OperacionNoValidaException("La tienda aun tiene empleados");
+		}
+		long id = tiendasDAO.tiendaPorNombre(nombre).getId();
+		return tiendasDAO.eliminarTienda(id);
 	}
 
 	
 	public Tienda tienda(String nombre) throws DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
+		return tiendasDAO.tiendaPorNombre(nombre);
 	}
 
 }

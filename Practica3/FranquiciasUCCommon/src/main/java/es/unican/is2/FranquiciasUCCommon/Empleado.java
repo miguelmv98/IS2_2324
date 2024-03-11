@@ -37,9 +37,40 @@ public class Empleado {
 	 * Retorna el sueldo bruto del empleado
 	 */
 	public double sueldoBruto() {
-		// TODO
-		return 0;
+		double sueldo = asignarSueldoBase();
+		sueldo += bonusAntiguedad(LocalDate.now());
+		if(baja) {
+			sueldo = sueldo*0.75; 
+		}
+		return sueldo;
 	}
+	
+	private double asignarSueldoBase() {
+		switch(categoria) {
+			case ENCARGADO:
+				return 2000;
+			case VENDEDOR:
+				return 1500;
+			case AUXILIAR:
+				return 1000;
+			default:
+				return 0;
+		}
+	}
+	
+	private double bonusAntiguedad(LocalDate fechaCalculo) {
+		
+		if(!fechaContratacion.plusYears(5).isAfter(fechaCalculo)) {
+			return 0;
+		}else if(!fechaContratacion.plusYears(10).isAfter(fechaCalculo)) {
+			return 50;
+		}else if(!fechaContratacion.plusYears(20).isAfter(fechaCalculo)) {
+			return 100;
+		}else {
+			return 200;
+		}
+	}
+
 	
 	/** 
 	 * Dar de baja al empleado
