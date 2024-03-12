@@ -1,10 +1,10 @@
-package es.unican.is2.FranquiciasUCMain;
+package es.unican.is2.franquiciasucmain;
 
-import es.unican.is2.FranquiciasUCBusiness.GestionEmpleados;
-import es.unican.is2.FranquiciasUCBusiness.GestionTiendas;
-import es.unican.is2.FranquiciasUCDAO.EmpleadosDAO;
-import es.unican.is2.FranquiciasUCDAO.TiendasDAO;
-import es.unican.is2.FranquiciasUCGUI.VistaGerente;
+import es.unican.is2.franquiciasucbusiness.GestionEmpleados;
+import es.unican.is2.franquiciasucbusiness.GestionTiendas;
+import es.unican.is2.franquiciasucdao.EmpleadosDAO;
+import es.unican.is2.franquiciasucdao.TiendasDAO;
+import es.unican.is2.franquiciasucgui.VistaGerente;
 
 /**
  * Clase principal que construye la aplicación de tres capas y lanza su ejecución

@@ -32,7 +32,7 @@
 				</descriptorRefs>
 				<archive>
 					<manifest>
-						<mainClass>es.unican.is2.FranquiciasUCMain.Runner></mainClass>
+						<mainClass>es.unican.is2.franquiciasucmain.Runner></mainClass>
 					</manifest>
 				</archive>
 			</configuration>
