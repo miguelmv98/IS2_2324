@@ -1,10 +1,10 @@
-package es.unican.is2.FranquiciasUCBusiness;
+package es.unican.is2.franquiciasucbusiness;
 
-import es.unican.is2.FranquiciasUCCommon.DataAccessException;
-import es.unican.is2.FranquiciasUCCommon.IGestionTiendas;
-import es.unican.is2.FranquiciasUCCommon.ITiendasDAO;
-import es.unican.is2.FranquiciasUCCommon.OperacionNoValidaException;
-import es.unican.is2.FranquiciasUCCommon.Tienda;
+import es.unican.is2.franquiciasuccommon.DataAccessException;
+import es.unican.is2.franquiciasuccommon.IGestionTiendas;
+import es.unican.is2.franquiciasuccommon.ITiendasDAO;
+import es.unican.is2.franquiciasuccommon.OperacionNoValidaException;
+import es.unican.is2.franquiciasuccommon.Tienda;
 
 public class GestionTiendas implements IGestionTiendas {
 	

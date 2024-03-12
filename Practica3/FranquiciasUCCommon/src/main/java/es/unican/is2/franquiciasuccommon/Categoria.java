@@ -1,4 +1,4 @@
-package es.unican.is2.FranquiciasUCCommon;
+package es.unican.is2.franquiciasuccommon;
 
 
 /**

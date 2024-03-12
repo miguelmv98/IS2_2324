@@ -1,12 +1,12 @@
-package es.unican.is2.FranquiciasUCBusiness;
+package es.unican.is2.franquiciasucbusiness;
 
-import es.unican.is2.FranquiciasUCCommon.DataAccessException;
-import es.unican.is2.FranquiciasUCCommon.Empleado;
-import es.unican.is2.FranquiciasUCCommon.IEmpleadosDAO;
-import es.unican.is2.FranquiciasUCCommon.IGestionEmpleados;
-import es.unican.is2.FranquiciasUCCommon.ITiendasDAO;
-import es.unican.is2.FranquiciasUCCommon.OperacionNoValidaException;
-import es.unican.is2.FranquiciasUCCommon.Tienda;
+import es.unican.is2.franquiciasuccommon.DataAccessException;
+import es.unican.is2.franquiciasuccommon.Empleado;
+import es.unican.is2.franquiciasuccommon.IEmpleadosDAO;
+import es.unican.is2.franquiciasuccommon.IGestionEmpleados;
+import es.unican.is2.franquiciasuccommon.ITiendasDAO;
+import es.unican.is2.franquiciasuccommon.OperacionNoValidaException;
+import es.unican.is2.franquiciasuccommon.Tienda;
 
 
 

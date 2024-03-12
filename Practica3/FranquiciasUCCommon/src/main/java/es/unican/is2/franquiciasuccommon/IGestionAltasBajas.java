@@ -1,4 +1,4 @@
-package es.unican.is2.FranquiciasUCCommon;
+package es.unican.is2.franquiciasuccommon;
 /**
  * Interfaz de negocio para la gesti�n de altas y bajas medicas
  */

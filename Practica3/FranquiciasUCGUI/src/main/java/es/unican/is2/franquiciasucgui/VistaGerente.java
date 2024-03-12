@@ -1,4 +1,4 @@
-package es.unican.is2.FranquiciasUCGUI;
+package es.unican.is2.franquiciasucgui;
 
 
 import javax.swing.JFrame;
@@ -16,11 +16,11 @@ import javax.swing.JList;
 
 import javax.swing.border.LineBorder;
 
-import es.unican.is2.FranquiciasUCCommon.DataAccessException;
-import es.unican.is2.FranquiciasUCCommon.Empleado;
-import es.unican.is2.FranquiciasUCCommon.IGestionEmpleados;
-import es.unican.is2.FranquiciasUCCommon.IGestionTiendas;
-import es.unican.is2.FranquiciasUCCommon.Tienda;
+import es.unican.is2.franquiciasuccommon.DataAccessException;
+import es.unican.is2.franquiciasuccommon.Empleado;
+import es.unican.is2.franquiciasuccommon.IGestionEmpleados;
+import es.unican.is2.franquiciasuccommon.IGestionTiendas;
+import es.unican.is2.franquiciasuccommon.Tienda;
 
 import java.awt.Color;
 import javax.swing.JButton;

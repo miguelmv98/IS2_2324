@@ -1,4 +1,4 @@
-package es.unican.is2.FranquiciasUCDAO;
+package es.unican.is2.franquiciasucdao;
 
 
 import java.sql.Connection;
@@ -8,9 +8,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import es.unican.is2.FranquiciasUCCommon.DataAccessException;
-import es.unican.is2.FranquiciasUCCommon.ITiendasDAO;
-import es.unican.is2.FranquiciasUCCommon.Tienda;
+import es.unican.is2.franquiciasuccommon.DataAccessException;
+import es.unican.is2.franquiciasuccommon.ITiendasDAO;
+import es.unican.is2.franquiciasuccommon.Tienda;
 
 /**
  * Implementacion de la capa DAO de acceso a Tiendas. 
