@@ -36,7 +36,10 @@ public class Empleado {
 	/**
 	 * Retorna el sueldo bruto del empleado
 	 */
-	public double sueldoBruto() {
+	public double sueldoBruto() throws Exception {
+		if(fechaContratacion.isAfter(LocalDate.now())) {
+			throw new Exception("Antiguedad no Valida");
+		}
 		double sueldo = asignarSueldoBase();
 		sueldo += bonusAntiguedad(LocalDate.now());
 		if(baja) {
@@ -60,11 +63,11 @@ public class Empleado {
 	
 	private double bonusAntiguedad(LocalDate fechaCalculo) {
 		
-		if(!fechaContratacion.plusYears(5).isAfter(fechaCalculo)) {
+		if(!fechaContratacion.plusYears(5).isBefore(fechaCalculo)) {
 			return 0;
-		}else if(!fechaContratacion.plusYears(10).isAfter(fechaCalculo)) {
+		}else if(!fechaContratacion.plusYears(10).isBefore(fechaCalculo)) {
 			return 50;
-		}else if(!fechaContratacion.plusYears(20).isAfter(fechaCalculo)) {
+		}else if(!fechaContratacion.plusYears(20).isBefore(fechaCalculo)) {
 			return 100;
 		}else {
 			return 200;

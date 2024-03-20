@@ -6,5 +6,5 @@ package es.unican.is2.franquiciasuccommon;
  */
 public enum Categoria {
 	
-	ENCARGADO, VENDEDOR, AUXILIAR;
+	ENCARGADO, VENDEDOR, AUXILIAR, OTRO;
 }

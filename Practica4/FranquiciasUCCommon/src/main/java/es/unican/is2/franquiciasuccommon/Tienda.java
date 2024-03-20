@@ -40,7 +40,11 @@ public class Tienda implements Serializable {
 	public double gastoMensualSueldos() {
 		double total = 0.0;
 		for (Empleado e:empleados) {
-			total+=e.sueldoBruto();
+			try {
+				total+=e.sueldoBruto();
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
 		}
 		return total;
 	}

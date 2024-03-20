@@ -67,6 +67,7 @@ public class VistaGerente extends JFrame {
 		txtTotalSueldos.setName("txtTotalContribuyente");
 
 		JLabel lblTotalSueldos = new JLabel("Total sueldos");
+		lblTotalSueldos.setName("lblTotalSueldos");
 		lblTotalSueldos.setBounds(115, 254, 99, 14);
 		contentPane.add(lblTotalSueldos);
 
