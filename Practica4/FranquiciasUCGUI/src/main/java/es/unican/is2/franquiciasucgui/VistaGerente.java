@@ -79,10 +79,12 @@ public class VistaGerente extends JFrame {
 		listNombreEmpleados.setName("listNombreEmpleados");
 
 		JLabel lblEmpleados = new JLabel("Empleados");
+		lblEmpleados.setName("lblEmpleados");
 		lblEmpleados.setBounds(132, 103, 83, 14);
 		contentPane.add(lblEmpleados);
 
 		JLabel lblNombreContribuyente = new JLabel("Direccion");
+		lblNombreContribuyente.setName("lblNombreContribuyente");	
 		lblNombreContribuyente.setBounds(155, 54, 65, 14);
 		contentPane.add(lblNombreContribuyente);
 
@@ -93,6 +95,7 @@ public class VistaGerente extends JFrame {
 		txtDireccionTienda.setName("txtDireccionTienda");
 
 		JLabel lblDatosTienda = new JLabel("Datos Tienda");
+		lblDatosTienda.setName("lblDatosTienda");
 		lblDatosTienda.setBounds(230, 11, 149, 14);
 		contentPane.add(lblDatosTienda);
 
@@ -100,7 +103,7 @@ public class VistaGerente extends JFrame {
 		txtNombreTienda.setBounds(10, 51, 113, 20);
 		contentPane.add(txtNombreTienda);
 		txtNombreTienda.setColumns(10);
-		txtNombreTienda.setName("txtDireccionTienda");
+		txtNombreTienda.setName("txtNombreTienda");
 
 		JLabel lblNombreTienda = new JLabel("Nombre Tienda");
 		lblNombreTienda.setBounds(21, 27, 139, 14);
@@ -124,15 +127,15 @@ public class VistaGerente extends JFrame {
 		try {
 		Tienda t = tiendas.tienda(nombre);
 		if (t != null) {
-			txtDireccionTienda.setText(t.getNombre());
+			txtDireccionTienda.setText(t.getDireccion());
 			txtTotalSueldos.setText(Double.toString(t.gastoMensualSueldos()));
 			listModel.removeAllElements();
-			for (int i = 0; i < t.getEmpleados().size()-1; i++) {
+			for (int i = 0; i < t.getEmpleados().size(); i++) {
 				Empleado e = t.getEmpleados().get(i);
 				listModel.addElement(e.getNombre());
 			}
 		} else {
-			txtDireccionTienda.setText("Tienda no existe");
+			txtDireccionTienda.setText("Tienda No Existe");
 			txtTotalSueldos.setText("");
 			listModel.removeAllElements();
 		}

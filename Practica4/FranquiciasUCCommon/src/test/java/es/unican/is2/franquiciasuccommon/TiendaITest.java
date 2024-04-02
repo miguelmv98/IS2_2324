@@ -30,5 +30,7 @@ public class TiendaITest {
 		tienda.getEmpleados().add(new Empleado("123456789A","Nombre1",Categoria.ENCARGADO,LocalDate.now()));
 		tienda.getEmpleados().add(new Empleado("123456789B","Nombre2",Categoria.VENDEDOR,LocalDate.now().minusYears(2)));
 		assertEquals(tienda.gastoMensualSueldos(),3500);
+		tienda.getEmpleados().add(new Empleado("123456789C","Nombre3",Categoria.VENDEDOR,LocalDate.now().plusDays(2)));
+		assertEquals(tienda.gastoMensualSueldos(),3500);
 	}
 }
