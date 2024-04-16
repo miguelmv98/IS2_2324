@@ -58,12 +58,12 @@ class ListaOrdenadaAcotadaTest {
 		assertEquals(lista1234Tam5.get(3),4);
 		
 		//Casos de prueba no validos
-		assertThrows(IndexOutOfBoundsException.class,() ->listaVaciaTam10.get(0));
-		assertThrows(IndexOutOfBoundsException.class,() ->lista1234Tam5.get(-1));
-		assertThrows(IndexOutOfBoundsException.class,() ->lista1234Tam5.get(-15));
-		assertThrows(IndexOutOfBoundsException.class,() ->lista1234Tam5.get(4));
-		assertThrows(IndexOutOfBoundsException.class,() ->lista1234Tam5.get(20));
-		
+		assertThrows(IndexOutOfBoundsException.class,() -> listaVaciaTam10.get(0));
+
+		assertThrows(IndexOutOfBoundsException.class,() -> lista1234Tam5.get(-1));
+		assertThrows(IndexOutOfBoundsException.class,() -> lista1234Tam5.get(-15));
+		assertThrows(IndexOutOfBoundsException.class,() -> lista1234Tam5.get(4));
+		assertThrows(IndexOutOfBoundsException.class,() -> lista1234Tam5.get(20));		
 		
 	}
 	@Test
@@ -119,7 +119,12 @@ class ListaOrdenadaAcotadaTest {
 		assertEquals(lista1234Tam5.get(3),4);
 		assertEquals(lista1234Tam5.get(4),5);
 		assertThrows(IllegalStateException.class,()->lista1234Tam5.add(1));
-		
+		assertEquals(lista1234Tam5.size(),5);
+		assertEquals(lista1234Tam5.get(0),1);
+		assertEquals(lista1234Tam5.get(1),2);
+		assertEquals(lista1234Tam5.get(2),3);
+		assertEquals(lista1234Tam5.get(3),4);
+		assertEquals(lista1234Tam5.get(4),5);
 		
 	}
 	@Test
@@ -137,7 +142,7 @@ class ListaOrdenadaAcotadaTest {
 		
 		assertEquals(lista1234Tam5.remove(0),1);
 		assertEquals(lista1234Tam5.size(),1);
-		assertEquals(lista1234Tam5.get(0),1);		
+		assertEquals(lista1234Tam5.get(0),2);		
 
 		//Casos de prueba no validos
 		assertThrows(IndexOutOfBoundsException.class,() ->listaVaciaTam10.remove(0));
