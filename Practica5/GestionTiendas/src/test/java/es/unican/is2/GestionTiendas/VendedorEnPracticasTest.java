@@ -1,4 +1,4 @@
-package es.unican.is2.oldGestionTiendas;
+package es.unican.is2.GestionTiendas;
 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -7,8 +7,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import es.unican.is2.GestionTiendas.VendedorEnPracticas;
 
 
 public class VendedorEnPracticasTest {

@@ -10,7 +10,7 @@ public class VendedorEnPracticas extends Vendedor {
 	 * @param nombre
 	 * @param dni
 	 */
-	public VendedorEnPracticas(String nombre, String id, String dni) {
+	public VendedorEnPracticas(String nombre, String id, String dni) { //WMC +1
 		super(nombre, id, dni,TASA_COMISION_PRACTICAS);
 	}
 }

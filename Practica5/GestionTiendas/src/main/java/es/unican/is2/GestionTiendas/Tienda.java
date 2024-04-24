@@ -103,71 +103,8 @@ public class Tienda {
 	 */
 	public Vendedor buscaVendedor(String id) throws DataAccessException { //WMC +1
 
-		lista = new LinkedList<Vendedor>();
-		Scanner in = null;
-		try {
-			// abre el fichero
-			in = new Scanner(new FileReader(datos));
-			// configura el formato de numeros
-			in.useLocale(Locale.ENGLISH);
-			nombre = in.nextLine();
-			direccion = in.nextLine();
-			in.next();
-			Vendedor ven = null;
-			// lee los vendedores senior
-			while (in.hasNext() && !in.next().equals("Junior")) { //WMC +2 //CCog +2
-
-				String nombre = in.next();
-				in.next();
-				String idIn = in.next();
-				in.next();
-				String dni = in.next();
-				in.next();
-				double totalVentas = in.nextDouble();
-				in.next();
-				double totalComision = in.nextDouble();
-				ven = new VendedorSenior(nombre, idIn, dni);
-				ven.setTotalVentas(totalVentas);
-				ven.setComision(totalComision);
-				lista.add(ven);
-			}
-			// lee los vendedores junior
-			while (in.hasNext() && !in.next().equals("Practicas")) { //WMC +2  //CCog+2
-				String nombre = in.next();
-				in.next();
-				String idIn = in.next();
-				in.next();
-				String dni = in.next();
-				in.next();
-				double totalVentas = in.nextDouble();
-				in.next();
-				double totalComision = in.nextDouble();
-				ven = new VendedorJunior(nombre, idIn, dni);
-				ven.setTotalVentas(totalVentas);
-				ven.setComision(totalComision);
-				lista.add(ven);
-			}
-			while (in.hasNext()) { //WMC +1 //CCog +1
-				in.next();
-				String nombre = in.next();
-				in.next();
-				String idIn = in.next();
-				in.next();
-				String dni = in.next();
-				in.next();
-				double totalVentas = in.nextDouble();
-				ven = new VendedorEnPracticas(nombre, idIn, dni);
-				ven.setTotalVentas(totalVentas);
-				lista.add(ven);
-			}
-		} catch (FileNotFoundException e) {//WMC +1 //CCog +1
-			throw new DataAccessException();
-		} finally {
-			if (in != null) { //WMC +1  /CCog +1
-				in.close();
-			}
-		} // try
-
+		lista = vendedores();
+		
 		for (Vendedor v : lista) { //WMC  +1 //CCog +1
 			if (v.getId().equals(id)) { //WMC +1 //CCog +2
 				return v;
@@ -193,52 +130,16 @@ public class Tienda {
 			nombre = in.nextLine();
 			direccion = in.nextLine();
 			in.next();
-			Vendedor ven = null;
-			// lee los vendedores senior
 			// lee los vendedores senior
 			while (in.hasNext() && !in.next().equals("Junior")) { //WMC +2 //CCog +2
-				String nombre = in.next();
-				in.next();
-				String idIn = in.next();
-				in.next();
-				String dni = in.next();
-				in.next();
-				double totalVentas = in.nextDouble();
-				in.next();
-				double totalComision = in.nextDouble();
-				ven = new VendedorSenior(nombre, idIn, dni);
-				ven.setTotalVentas(totalVentas);
-				ven.setComision(totalComision);
-				lista.add(ven);
+				lista.add(leeVendedorSenior(in));
 			}
 			// lee los vendedores junior
 			while (in.hasNext() && !in.next().equals("Practicas")) { //WMC +2 //CCog +2
-				String nombre = in.next();
-				in.next();
-				String idIn = in.next();
-				in.next();
-				String dni = in.next();
-				in.next();
-				double totalVentas = in.nextDouble();
-				in.next();
-				double totalComision = in.nextDouble();
-				ven = new VendedorJunior(nombre, idIn, dni);
-				ven.setTotalVentas(totalVentas);
-				ven.setComision(totalComision);
-				lista.add(ven);
+				lista.add(leeVendedorJunior(in));
 			}
 			while (in.hasNext()) { //WMC +1 //CCog +1
-				in.next();
-				String nombre = in.next();
-				in.next();
-				String idIn = in.next();
-				in.next();
-				String dni = in.next();
-				in.next();
-				double totalVentas = in.nextDouble();
-				ven = new VendedorEnPracticas(nombre, idIn, dni);
-				ven.setTotalVentas(totalVentas);
-				lista.add(ven);
+				lista.add(leeVendedorEnPracticas(in));
 			}
 		} catch (FileNotFoundException e) { //WMC +1 //CCog +1
 			throw new DataAccessException();
@@ -250,6 +151,55 @@ public class Tienda {
 
 		return lista;
 
+	}
+
+	private Vendedor leeVendedorEnPracticas(Scanner in) { // WMC +1
+		Vendedor ven;
+		in.next();
+		String nombre = in.next();
+		in.next();
+		String idIn = in.next();
+		in.next();
+		String dni = in.next();
+		in.next();
+		double totalVentas = in.nextDouble();
+		ven = new VendedorEnPracticas(nombre, idIn, dni);
+		ven.setTotalVentas(totalVentas);
+		return ven;
+	}
+
+	private Vendedor leeVendedorJunior(Scanner in) { // WMC +1
+		Vendedor ven;
+		String nombre = in.next();
+		in.next();
+		String idIn = in.next();
+		in.next();
+		String dni = in.next();
+		in.next();
+		double totalVentas = in.nextDouble();
+		in.next();
+		double totalComision = in.nextDouble();
+		ven = new VendedorJunior(nombre, idIn, dni);
+		ven.setTotalVentas(totalVentas);
+		ven.setComision(totalComision);
+		return ven;
+	}
+
+	private Vendedor leeVendedorSenior(Scanner in) {  // WMC +1
+		Vendedor ven;
+		String nombre = in.next();
+		in.next();
+		String idIn = in.next();
+		in.next();
+		String dni = in.next();
+		in.next();
+		double totalVentas = in.nextDouble();
+		in.next();
+		double totalComision = in.nextDouble();
+		ven = new VendedorSenior(nombre, idIn, dni);
+		ven.setTotalVentas(totalVentas);
+		ven.setComision(totalComision);
+		return ven;
 	}
 
 	/**
@@ -267,7 +217,7 @@ public class Tienda {
 				practicas.add(v);
 			} else if (v instanceof VendedorJunior) { //WMC +1  //CCog +1
 					junior.add(v);
-			} else if (v instanceof VendedorSenior) { //WMC +1  //CCog +3
+			} else if (v instanceof VendedorSenior) { //WMC +1  //CCog +1
 					senior.add(v);
 			}
 		}
@@ -280,31 +230,34 @@ public class Tienda {
 			out.println(direccion);
 			out.println();
 			out.println("Senior");
-			for (Vendedor v : senior) { //WMC +1 //CCog +1
-				VendedorSenior v1 = (VendedorSenior) v;
-				out.println("  Nombre: " + v1.getNombre() + " Id: " + v1.getId() + " DNI: " + v1.getDni()
-						+ " TotalVentasMes: " + v1.getTotalVentas() + " TotalComision: "+ v1.getComision());
-			}
+			pintarVendedoresConComision(out, senior);
 			out.println();
 			out.println("Junior");
-			for (Vendedor v : junior) { //WMC +1 //CCog +1
-				VendedorJunior v2 = (VendedorJunior) v;
-				out.println("  Nombre: " + v2.getNombre() + " Id: " + v2.getId() + " DNI: " + v2.getDni()
-						+ " TotalVentasMes: " + v2.getTotalVentas() + " TotalComision: "+ v2.getComision());
-			}
+			pintarVendedoresConComision(out, junior);
 			out.println();
 			out.println("Practicas");
-			for (Vendedor v : practicas) { //WMC +1 //CCog +1
-				VendedorEnPracticas v3 = (VendedorEnPracticas) v;
-				out.println("  Nombre: " + v3.getNombre() + " Id: " + v3.getId() + " DNI: " + v3.getDni()
-						+ " TotalVentasMes: " + v3.getTotalVentas());
-			}
+			pintarVendedoresSinComision(out,practicas);
 		} catch (IOException e) {  //WMC +1 //CCog +1
 			throw new DataAccessException();
 
 		} finally {
 			if (out != null)  //WMC +1 //CCog +1
 				out.close();
+		}
+	}
+
+	private void pintarVendedoresConComision(PrintWriter out, List<Vendedor> senior) { //WMC +1
+		for (Vendedor v : senior) { //WMC +1 //CCog +1
+			out.println("  Nombre: " + v.getNombre() + " Id: " + v.getId() + " DNI: " + v.getDni()
+					+ " TotalVentasMes: " + v.getTotalVentas() + " TotalComision: "+ v.getComision());
+		}
+	}
+	
+	private void pintarVendedoresSinComision(PrintWriter out, List<Vendedor> senior) { //WMC +1
+		for (Vendedor v : senior) { //WMC +1 //CCog +1
+			out.println("  Nombre: " + v.getNombre() + " Id: " + v.getId() + " DNI: " + v.getDni()
+					+ " TotalVentasMes: " + v.getTotalVentas());
+		
 		}
 	}
 

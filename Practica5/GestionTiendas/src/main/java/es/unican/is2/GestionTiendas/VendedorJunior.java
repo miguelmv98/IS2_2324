@@ -11,7 +11,7 @@ public class VendedorJunior extends Vendedor {
 	 * @param dni
 	 * @param tipo
 	 */
-	public VendedorJunior(String nombre, String id, String dni) {
+	public VendedorJunior(String nombre, String id, String dni) { //WMC +1
 		super(nombre, id, dni,TASA_COMISION_JUNIOR);
 	}
 }

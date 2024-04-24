@@ -10,7 +10,7 @@ public class VendedorSenior extends Vendedor {
 	 * @param dni
 	 * @param tipo
 	 */
-	public VendedorSenior(String nombre, String id, String dni) {
+	public VendedorSenior(String nombre, String id, String dni) { // WMC +1
 		super(nombre, id, dni, TASA_COMISION_SENIOR);
 	}
 	

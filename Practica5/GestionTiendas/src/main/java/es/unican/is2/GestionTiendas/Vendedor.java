@@ -14,7 +14,7 @@ public abstract class Vendedor {
 	private double totalVentas;
 	private final double TASA_COMISION;
 	
-	public Vendedor(String nombre, String id, String dni,double tasaComision) {
+	public Vendedor(String nombre, String id, String dni,double tasaComision) {  //WMC +1
 		this.nombre = nombre;
 		this.id = id;
 		this.dni = dni;
@@ -25,7 +25,7 @@ public abstract class Vendedor {
 	 * Retorna el nombre del vendedor
 	 * @return nombre
 	 */
-	public String getNombre() {
+	public String getNombre() { //WMC +1
 		return nombre;
 	}
 	
@@ -33,14 +33,14 @@ public abstract class Vendedor {
 	 * Retorna el id del vendedor
 	 * @return id
 	 */
-	public String getId() {
+	public String getId() { //WMC +1
 		return id;
 	}
 	/**
 	 * Retorna el dni del vendedor
 	 * @return dni
 	 */
-	public String getDni() {
+	public String getDni() { //WMC +1
 		return dni;
 	}
 	
@@ -48,7 +48,7 @@ public abstract class Vendedor {
 	 * Retorna la comision mensual acumulada
 	 * @return Comision total acumulada
 	 */
-	public double getComision() {
+	public double getComision() { //WMC +1
 		return comision;
 	}
 	
@@ -56,7 +56,7 @@ public abstract class Vendedor {
 	 * Asigna valor a la comision mensual acumulada
 	 * @param value comision a asignar
 	 */
-	public void setComision(double value) {
+	public void setComision(double value) { //WMC +1
 		this.comision = value;
 	}
 	
@@ -64,7 +64,7 @@ public abstract class Vendedor {
 	 * Retorna el importe total mensual de ventas
 	 * @return importe total de ventas acumuladas
 	 */
-	public double getTotalVentas( ) {
+	public double getTotalVentas( ) { //WMC +1
 		return totalVentas;
 	}
 	
@@ -72,7 +72,7 @@ public abstract class Vendedor {
 	 * Asigna valor al total de ventas mensual
 	 * @param value total de ventas a asignar
 	 */
-	public void setTotalVentas(double value) {
+	public void setTotalVentas(double value) { //WMC +1
 		totalVentas = value;
 	}
 	
@@ -80,17 +80,17 @@ public abstract class Vendedor {
 	 * Anhade una nueva venta al vendedor
 	 * @param importe de la venta
 	 */
-	public void anhade(double importe)  {
+	public void anhade(double importe)  { //WMC +1
 		totalVentas += importe;
 		comision += importe * TASA_COMISION;
 	}
 	
 	@Override
-	public boolean equals(Object obj) {
-		if (!(obj instanceof Vendedor)) 
+	public boolean equals(Object obj) { //WMC +1
+		if (!(obj instanceof Vendedor))  //WMC +1 //CCog +1
 			return false;
 		Vendedor v = (Vendedor) obj;
-		return (v.getId().equals(getId()) && v.getDni().equals(getDni()));
+		return (v.getId().equals(getId()) && v.getDni().equals(getDni())); //CCog +2 //WMC +2
 	}
 
 	
