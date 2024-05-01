@@ -4,6 +4,7 @@ package es.unican.is2.GestionTiendas;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -84,6 +85,21 @@ public class VendedorSeniorTest {
 		assertFalse(sutSenior.equals(distintoDNISenior));
 		
 		assertFalse(sutSenior.equals(new Object()));
+	}
+	
+	@Test
+	public void testHashCode() {
+		VendedorSenior igualSenior = new VendedorSenior("Pepe", "2", "222222222A");
+		VendedorSenior distintoIdSenior = new VendedorSenior("Pepe", "3", "222222222A");
+		VendedorSenior distintoDNISenior = new VendedorSenior("Pepe", "2", "33333333A");
+		VendedorSenior distintoSinIdSenior = new VendedorSenior("Pepe", null, "33333333A");
+		
+		assertEquals(igualSenior.hashCode(),sutSenior.hashCode());
+		assertNotEquals(distintoIdSenior.hashCode(),sutSenior.hashCode());
+		assertEquals(distintoDNISenior.hashCode(),sutSenior.hashCode());
+		assertNotEquals(distintoSinIdSenior.hashCode(),sutSenior.hashCode());
+		
+		assertNotEquals(new Object().hashCode(),sutSenior.hashCode());
 	}
 	
 	
