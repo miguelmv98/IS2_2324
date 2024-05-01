@@ -14,7 +14,7 @@ public abstract class Vendedor {
 	private double totalVentas;
 	private final double TASA_COMISION;
 	
-	public Vendedor(String nombre, String id, String dni,double tasaComision) {  //WMC +1
+	protected Vendedor(String nombre, String id, String dni,double tasaComision) {  //WMC +1
 		this.nombre = nombre;
 		this.id = id;
 		this.dni = dni;
@@ -91,6 +91,12 @@ public abstract class Vendedor {
 			return false;
 		Vendedor v = (Vendedor) obj;
 		return (v.getId().equals(getId()) && v.getDni().equals(getDni())); //CCog +2 //WMC +2
+	}
+	@Override
+	public int hashCode() {
+		int hash = getClass().hashCode();
+	    hash = 31 * hash + (this.id!= null ? id.hashCode() : 0);
+	    return hash;
 	}
 
 	

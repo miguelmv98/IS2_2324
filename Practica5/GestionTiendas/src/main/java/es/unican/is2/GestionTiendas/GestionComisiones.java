@@ -15,6 +15,7 @@ import fundamentos.Mensaje;
  */
 public class GestionComisiones {
 
+	private static final String ERROR = "ERROR";
 	/**
 	 * Programa principal basado en menu
 	 */
@@ -49,6 +50,10 @@ public class GestionComisiones {
 			case VENDEDORES: //WMC +1
 				mostrarVendedores(tienda);
 				break;
+			default:
+
+				mensaje(ERROR, "Opcion no registrada");
+				break;
 			}
 		}
 	}
@@ -74,7 +79,7 @@ public class GestionComisiones {
 			}
 			mensaje("VENDEDORES", msj);
 		} catch (DataAccessException e) { //WMC +1 //CCcog +1
-			mensaje("ERROR", "No se pudo acceder a los datos");
+			mensaje(ERROR, "No se pudo acceder a los datos");
 		}
 	}
 
@@ -103,7 +108,7 @@ public class GestionComisiones {
 			mensaje("VENDEDORES DEL MES", msj);
 
 		} catch (DataAccessException e) { //WMC +1 //CCog +1
-			mensaje("ERROR", "No se pudo acceder a los datos");
+			mensaje(ERROR, "No se pudo acceder a los datos");
 		}
 	}
 
@@ -116,10 +121,10 @@ public class GestionComisiones {
 		double importe = lect.leeDouble("Importe");
 		try {
 			if (!tienda.anhadeVenta(dni, importe)) { // WMC +1  //CCog +1
-				mensaje("ERROR", "El vendedor no existe");
+				mensaje(ERROR, "El vendedor no existe");
 			}
 		} catch (DataAccessException e) { //WMC +1 //CCog +1
-			mensaje("ERROR", "No se pudo guardar el cambio");
+			mensaje(ERROR, "No se pudo guardar el cambio");
 		}
 	}
 

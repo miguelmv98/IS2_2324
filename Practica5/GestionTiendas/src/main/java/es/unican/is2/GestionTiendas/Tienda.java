@@ -156,21 +156,21 @@ public class Tienda {
 	private Vendedor leeVendedorEnPracticas(Scanner in) { // WMC +1
 		Vendedor ven;
 		in.next();
-		String nombre = in.next();
+		String nombreIn = in.next();
 		in.next();
 		String idIn = in.next();
 		in.next();
 		String dni = in.next();
 		in.next();
 		double totalVentas = in.nextDouble();
-		ven = new VendedorEnPracticas(nombre, idIn, dni);
+		ven = new VendedorEnPracticas(nombreIn, idIn, dni);
 		ven.setTotalVentas(totalVentas);
 		return ven;
 	}
 
 	private Vendedor leeVendedorJunior(Scanner in) { // WMC +1
 		Vendedor ven;
-		String nombre = in.next();
+		String nombreIn = in.next();
 		in.next();
 		String idIn = in.next();
 		in.next();
@@ -179,7 +179,7 @@ public class Tienda {
 		double totalVentas = in.nextDouble();
 		in.next();
 		double totalComision = in.nextDouble();
-		ven = new VendedorJunior(nombre, idIn, dni);
+		ven = new VendedorJunior(nombreIn, idIn, dni);
 		ven.setTotalVentas(totalVentas);
 		ven.setComision(totalComision);
 		return ven;
@@ -187,7 +187,7 @@ public class Tienda {
 
 	private Vendedor leeVendedorSenior(Scanner in) {  // WMC +1
 		Vendedor ven;
-		String nombre = in.next();
+		String nombreIn = in.next();
 		in.next();
 		String idIn = in.next();
 		in.next();
@@ -196,7 +196,7 @@ public class Tienda {
 		double totalVentas = in.nextDouble();
 		in.next();
 		double totalComision = in.nextDouble();
-		ven = new VendedorSenior(nombre, idIn, dni);
+		ven = new VendedorSenior(nombreIn, idIn, dni);
 		ven.setTotalVentas(totalVentas);
 		ven.setComision(totalComision);
 		return ven;
