@@ -2,24 +2,23 @@ package es.unican.is2.GestionTiendas;
 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 
-public class VendedorEnPracticasTest {
+class VendedorEnPracticasTest {
 	
 	private static VendedorEnPracticas sut;
 
 	@BeforeEach
-	public void setUp(){
+	void setUp(){
 		sut = new VendedorEnPracticas("Ana", "1", "11111111A");
 	}
 	
 	@Test
-	public void testConstructor() {
+	void testConstructor() {
 		assertEquals("1", sut.getId());
 		assertEquals("Ana", sut.getNombre());
 		assertEquals("11111111A", sut.getDni());
@@ -28,7 +27,7 @@ public class VendedorEnPracticasTest {
 	}
 	
 	@Test
-	public void testSetT() {
+	void testSetT() {
 		sut.setTotalVentas(100);
 		assertEquals(100.0, sut.getTotalVentas());
 		
@@ -40,7 +39,7 @@ public class VendedorEnPracticasTest {
 	}
 	
 	@Test
-	public void testSetComision() {
+	void testSetComision() {
 		sut.setComision(100);
 		assertEquals(100.0, sut.getComision());
 		
@@ -52,7 +51,7 @@ public class VendedorEnPracticasTest {
 	}
 
 	@Test
-	public void testAnhadeVenta() {
+	void testAnhadeVenta() {
 		sut.anhade(200);
 		assertEquals(200.0, sut.getTotalVentas());
 		
@@ -65,7 +64,7 @@ public class VendedorEnPracticasTest {
 	}
 	
 	@Test
-	public void testEquals() {
+	void testEquals() {
 		VendedorEnPracticas igual = new VendedorEnPracticas("Ana", "1", "11111111A");
 		VendedorEnPracticas distintoId = new VendedorEnPracticas("Ana", "2", "11111111A");
 		VendedorEnPracticas distintoNombre = new VendedorEnPracticas("Pepe", "1", "222222222A");
@@ -74,7 +73,7 @@ public class VendedorEnPracticasTest {
 		assertNotEquals(distintoId,sut);
 		assertNotEquals(distintoNombre,sut);
 		
-		assertFalse(sut.equals(new Object()));
+		assertNotEquals(new Object(), sut);
 	}
 	
 	

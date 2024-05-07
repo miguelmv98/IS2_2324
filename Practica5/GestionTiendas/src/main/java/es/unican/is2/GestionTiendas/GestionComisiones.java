@@ -60,7 +60,6 @@ public class GestionComisiones {
 
 	private static void mostrarVendedores(Tienda tienda) { //WMC +1
 		List<Vendedor> vendedores;
-		String msj;
 		try {
 			vendedores = tienda.vendedores();
 			System.out.println(vendedores.size());
@@ -73,11 +72,16 @@ public class GestionComisiones {
 					return 0;
 				}
 			});
-			msj = "";
+			StringBuilder strBuilder = new StringBuilder();
 			for (Vendedor vn : vendedores) { //WMC +1 //CCog +1
-				msj += vn.getNombre() + " (" + vn.getId()+ ") "+vn.getTotalVentas() + "\n";
+				strBuilder.append(vn.getNombre()); 
+				strBuilder.append(" ("); 
+				strBuilder.append(vn.getId()); 
+				strBuilder.append(") ");
+				strBuilder.append(vn.getTotalVentas()); 
+				strBuilder.append("\n");;
 			}
-			mensaje("VENDEDORES", msj);
+			mensaje("VENDEDORES", strBuilder.toString());
 		} catch (DataAccessException e) { //WMC +1 //CCcog +1
 			mensaje(ERROR, "No se pudo acceder a los datos");
 		}
@@ -86,7 +90,6 @@ public class GestionComisiones {
 	private static void vendedorDelMes(Tienda tienda) { // WMC +1
 		List<Vendedor> vendedores;
 		List<Vendedor> resultado;
-		String msj;
 		try {
 			vendedores = tienda.vendedores();
 			resultado = new LinkedList<Vendedor>();
@@ -101,11 +104,12 @@ public class GestionComisiones {
 				}
 			}
 
-			msj = "";
+			StringBuilder strBuilder = new StringBuilder();
 			for (Vendedor vn : resultado) { //WMC +1 //CCog +1
-				msj += vn.getNombre() + "\n";
+				strBuilder.append(vn.getNombre());  
+				strBuilder.append("\n");
 			}
-			mensaje("VENDEDORES DEL MES", msj);
+			mensaje("VENDEDORES DEL MES", strBuilder.toString());
 
 		} catch (DataAccessException e) { //WMC +1 //CCog +1
 			mensaje(ERROR, "No se pudo acceder a los datos");
